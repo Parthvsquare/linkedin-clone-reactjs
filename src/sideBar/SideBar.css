@@ -23,7 +23,7 @@
 .sidebar__top {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 100%;
   align-items: center;
   border: 1px solid lightgray;
   border-bottom: 0;
