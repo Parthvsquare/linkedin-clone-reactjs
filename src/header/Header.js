@@ -15,7 +15,7 @@ function Header() {
             <img src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="" />
                 <div className="header__search">
                    <SearchIcon />
-                    <input type="text" />        
+                    <input placeholder='Search' type="text" />        
                 </div>
             </div>
             <div className="header__right">
