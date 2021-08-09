@@ -10,10 +10,13 @@ import SubscriptionsIcon from '@material-ui/icons/Subscriptions'
 import EventNoteIcon from '@material-ui/icons/EventNote'
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 import Post from './feedPosts/Post'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../features/userSlice'
 
 function Feed() {
     const [posts, setPosts] = useState([])
     const [input, setInput] = useState('')
+    const user = useSelector(selectUser);
     useEffect(() => {
         database.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot =>(
             setPosts(snapshot.docs.map(doc=>(
@@ -28,10 +31,10 @@ function Feed() {
     const sendPost= e=>{
         e.preventDefault();
         database.collection('posts').add({
-            name: 'Parth V',
+            name: user.displayName,
             description: 'this is a test',
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoUrl || '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setInput("");
