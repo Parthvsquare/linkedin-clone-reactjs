@@ -53,7 +53,7 @@ function Login() {
                 <input value={profilePic} onChange={(e)=> setProfilePic(e.target.value)} placeholder='Profile pic URL (optional)' type="text" />
                 <input value= {email} onChange={(e) => setEmail(e.target.value)} placeholder= 'Email' type="email" />
                 <input value={password} onChange={(e) => setPassword(e.target.value)}  placeholder= 'Password' type="password" />
-                <button onClick={loginToApp}> Sign In</button>
+                <button onClick={loginToApp} type='submit'> Sign In</button>
             </form>
         <p>
             Not a member?{" "}
