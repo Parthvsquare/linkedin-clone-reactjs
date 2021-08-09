@@ -12,6 +12,7 @@ import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay'
 import Post from './feedPosts/Post'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../features/userSlice'
+import FlipMove from 'react-flip-move'
 
 function Feed() {
     const [posts, setPosts] = useState([])
@@ -58,15 +59,18 @@ function Feed() {
                   <InputOption Icon={CalendarViewDayIcon} title="Write article" color = '#7fc15e'/>
               </div>
               </div>  
+              <FlipMove>
+
               {posts.map(({id, data: {name, description, message, photoUrl}}) => (
-            <Post 
-                    key= {id}
-                    name={name}
-                    description={description}
-                    message={message}
-                    phtotURl={photoUrl}
-            />
-            ))}
+                  <Post 
+                  key= {id}
+                  name={name}
+                  description={description}
+                  message={message}
+                  phtotURl={photoUrl}
+                  />
+                  ))}
+                  </FlipMove>
         </div>
     )
 }
